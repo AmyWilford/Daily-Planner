@@ -1,6 +1,9 @@
 let currentDayEl  = $('#currentDay')
 let tableDisplayEl = $('#table-display')
-let something;
+let tableRowEl;
+let timeCol;
+let activityCol;
+let saveCol;
 
 // Show current date
 let dateStatement = moment().format('dddd, MMMM Do YYYY');
@@ -19,11 +22,13 @@ function publishTableRows() {
         availableHours = availableHours.add(1, 'hour');
     })
     for(i = 8; i<hours.length; i++) {
-        let tableRowEl = $('<tr>').text('');
-        let timeCol = $('<td>').text(hours[i]);
-        let activityCol = $('<td>').text('');
-        let saveCol = $('<td>').text('');
-        console.log(hours[i]);
+        tableRowEl = $('<tr>');
+        timeCol = $('<td>').text(hours[i]);
+        activityCol = $('<td>');
+        saveCol = $('<td>').text('💾')
+        saveCol.on('click', random)
+
+        // Need to figure this part out using moments
       if (hours[i] < currentHour) {
         console.log('past')
         timeCol.css('background-color', 'green')
@@ -34,17 +39,20 @@ function publishTableRows() {
                 console.log('future');
             timeCol.css('background-color', 'blue')
             }
-    
         tableRowEl.append(
             timeCol,
             activityCol,
             saveCol
         );
-
+        
         tableDisplayEl.append(tableRowEl);
     }
     return 
 }
 
 publishTableRows();
+
+function random(){
+    console.log('click');
+}
 
