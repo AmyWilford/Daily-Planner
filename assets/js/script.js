@@ -25,6 +25,7 @@ function publishTableRows() {
         tableRowEl = $('<tr>');
         timeCol = $('<td>').text(hours[i]);
         activityCol = $('<td>');
+        activityTextarea = $('<textarea>');
         saveCol = $('<td>').text('💾')
         saveCol.on('click', random)
 
@@ -39,16 +40,18 @@ function publishTableRows() {
                 console.log('future');
             timeCol.css('background-color', 'blue')
             }
+
+        activityCol.append(activityTextarea);
         tableRowEl.append(
             timeCol,
             activityCol,
             saveCol
         );
-        
         tableDisplayEl.append(tableRowEl);
     }
     return 
 }
+
 
 publishTableRows();
 
