@@ -26,8 +26,8 @@ function publishTableRows() {
         timeCol = $('<td>').text(hours[i]);
         activityCol = $('<td>');
         activityTextarea = $('<textarea>');
-        saveCol = $('<td>').text('💾')
-        saveCol.on('click', random)
+        saveCol = $('<td>').addClass('saveButton').text('💾')
+        saveCol.on('click', saveActivity)
 
         // Need to figure this part out using moments
       if (hours[i] < currentHour) {
@@ -55,7 +55,13 @@ function publishTableRows() {
 
 publishTableRows();
 
-function random(){
+function saveActivity(){
     console.log('click');
+
 }
+
+function printActivity(){
+
+}
+
 
