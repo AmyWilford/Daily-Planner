@@ -19,8 +19,8 @@ new Array(24).fill().map((acc, index)=> {
 
 // Loop through array of hours for 9 hours (available working hours in the day)
 for(i = 0; i<9; i++) {
-    tableRowEl = $('<tr>').attr('id', i+9);
-    timeCol = $('<td>').text(hours[i+9]).addClass('timeblock col-2')
+    tableRowEl = $('<tr>').attr('id', i+9).addClass('custom-row');
+    timeCol = $('<td>').text(hours[i+9]).addClass('timeblock col-2 custom-td')
     activityCol = $('<td>').addClass('col-9').attr('class', 'note')
     activityTextarea = $('<textarea>').addClass('w-100').attr('data-id', i+9);
     saveCol = $('<td>').addClass('col-1')

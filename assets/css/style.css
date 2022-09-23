@@ -30,8 +30,8 @@ textarea {
   border-radius: 15px;
 }
 
-.row {
-  white-space: pre-wrap;
+.custom-row {
+  /* white-space: pre-wrap; */
   height: 80px;
   border-top: 1px solid white;
 }
@@ -72,4 +72,7 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-
+.custom-td {
+  border-top: 2px dashed grey;
+  border-bottom: 2px dashed grey;
+}
