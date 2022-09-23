@@ -1,5 +1,3 @@
-
-
 let currentDayEl  = $('#currentDay')
 let tableDisplayEl = $('#table-display')
 let tableRowEl;
@@ -22,9 +20,10 @@ function publishTableRows() {
         hours.push(availableHours.format('H mm A'))
         availableHours = availableHours.add(1, 'hour');
     })
-    for(i = 8; i<hours.length; i++) {
+    console.log(hours);
+    for(i = 0; i<9; i++) {
         tableRowEl = $('<tr>');
-        timeCol = $('<td>').text(hours[i]);
+        timeCol = $('<td>').text(hours[i+9]);
         activityCol = $('<td>');
         activityTextarea = $('<textarea>');
         saveCol = $('<td>').addClass('fa fa-save')
