@@ -5,9 +5,8 @@
 - Description
 - Technologies Used
 - Usage
-- Demo
 - Deployment
-- Credits
+- Demo
 
 ## Description
 
@@ -50,12 +49,12 @@ THEN the saved events persist
 
 ## Usage:
 
-Use this calendar to schedule your day ahead. For any hour of the working day, click into the empty text box in enter your activity, and click save. When you reload the page, you'll see that your day's activities are still there for you to reference any time.
-
-## Demo:
-
-<img src="placeholder" alt="screenshoot of daily-">
+Use this calendar to schedule your day ahead. For any hour of the working day, click into the empty text box to enter your activity, and click save. When you reload the page, you'll see that your day's activities are still there for you to reference any time throughout the day.
 
 ## Deployment:
 
 View this application in a web environment: [https://amywilford.github.io/Work-Day-Scheduler/]
+
+## Demo:
+
+<img src="assets/images/Site-Demo-Image.png" alt="demo image for work day scheduler">

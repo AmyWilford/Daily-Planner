@@ -4,8 +4,10 @@ let tableDisplayEl = $('#table-display')
 
 // Establish current date
 let dateStatement = moment().format('dddd, MMMM Do YYYY');
+
 // Publish date on page
 currentDayEl.text(dateStatement);
+
 // Establish current hour
 let currentHour = moment().hour()
 
@@ -18,7 +20,9 @@ new Array(24).fill().map((acc, index)=> {
 })
 
 // Loop through array of hours for 9 hours (available working hours in the day)
+// Add class & styles to elements as they are created
 for(i = 0; i<9; i++) {
+    // set tableRowEl id to the index displayed on on the calendar to easily identify which row belongs to which hour
     tableRowEl = $('<tr>').attr('id', i+9).addClass('custom-row');
     timeCol = $('<td>').text(hours[i+9]).addClass('timeblock col-2 custom-td text-right')
     activityCol = $('<td>').addClass('col-9').attr('class', 'note')
@@ -27,7 +31,7 @@ for(i = 0; i<9; i++) {
     saveBtn = $('<button>').addClass('saveBtn').on('click', saveNote);
     saveIcon = $('<i>').addClass('fa fa-save');
 
-    // Add Past/Present/Future rules based on current index + 9 (the starting point)
+    // Add Past/Present/Future rules based on current index + 9 (the starting hour point)
     if(currentHour < (i + 9)) {
     activityCol.addClass('future')
     } else if (currentHour === (i+9)) {
@@ -36,7 +40,7 @@ for(i = 0; i<9; i++) {
         activityCol.addClass('past');
     }
 
-// Append created sections to the table
+// Append created sections to the tableDisplayElement
     saveBtn.append(saveIcon);   
     activityCol.append(activityTextarea);
     saveCol.append(saveBtn);
@@ -61,19 +65,17 @@ function saveNote(event){
     return;
 }
 // function to publish note
-function loadActivities(){
+function loadNotes(){
     for(i=9; i<18; i++){
-       let storedActivity = localStorage.getItem(i);
+       let storedNote = localStorage.getItem(i);
 
-       if(storedActivity){
-        let activityEl = $("textarea[data-id='" + i +"']");
+       if(storedNote){
+        let noteEl = $("textarea[data-id='" + i +"']");
     //    console.log( $("textarea[data-id='" + i +"']"));
-        activityEl.val(storedActivity);
+        noteEl.val(storedNote);
        }
 
     }
 }
-loadActivities();
-
-activityTextarea.addClass('w-100');
-
+// 
+loadNotes();
