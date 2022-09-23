@@ -13,17 +13,17 @@ let currentHour = moment().hour()
 let hours = [];
 let availableHours = moment('12');
 new Array(24).fill().map((acc, index)=> {
-    hours.push(availableHours.format('H mm A'))
+    hours.push(availableHours.format('hA'))
     availableHours = availableHours.add(1, 'hour');
 })
 
 // Loop through array of hours for 9 hours (available working hours in the day)
 for(i = 0; i<9; i++) {
     tableRowEl = $('<tr>').attr('id', i+9).addClass('custom-row');
-    timeCol = $('<td>').text(hours[i+9]).addClass('timeblock col-2 custom-td')
+    timeCol = $('<td>').text(hours[i+9]).addClass('timeblock col-2 custom-td text-right')
     activityCol = $('<td>').addClass('col-9').attr('class', 'note')
     activityTextarea = $('<textarea>').addClass('w-100').attr('data-id', i+9);
-    saveCol = $('<td>').addClass('col-1')
+    saveCol = $('<td>').addClass('col-1 p-0')
     saveBtn = $('<button>').addClass('saveBtn').on('click', saveNote);
     saveIcon = $('<i>').addClass('fa fa-save');
 
