@@ -1,3 +1,5 @@
+
+
 let currentDayEl  = $('#currentDay')
 let tableDisplayEl = $('#table-display')
 let tableRowEl;
@@ -7,14 +9,13 @@ let saveCol;
 
 // Show current date
 let dateStatement = moment().format('dddd, MMMM Do YYYY');
-currentDayEl.text(dateStatement);
 
+let currentHour = moment().hour()
+console.log(currentHour);
 
 
 // Function to establish hours of day and create and publish relevent rows to <table>
 function publishTableRows() {
-    let currentHour = moment().format('H mm A')
-    console.log(currentHour);
     let hours = [];
     let availableHours = moment('12');
     new Array(19).fill().map((acc, index)=> {
@@ -26,10 +27,18 @@ function publishTableRows() {
         timeCol = $('<td>').text(hours[i]);
         activityCol = $('<td>');
         activityTextarea = $('<textarea>');
-        saveCol = $('<td>').addClass('saveButton').text('💾')
-        saveCol.on('click', saveActivity)
+        saveCol = $('<td>').addClass('fa fa-save')
+        // saveCol.on('click', saveActivity)
 
         // Need to figure this part out using moments
+        if(currentHour < (i + 9)) {
+        activityCol.addClass('future')
+        } else if (currentHour === (i+9)) {
+            activityCol.addClass('present')
+        } else if (currentHour > i+9){
+            activityCol.addClass('past');
+        }
+
       if (hours[i] < currentHour) {
         console.log('past')
         timeCol.css('background-color', 'green')
@@ -51,17 +60,6 @@ function publishTableRows() {
     }
     return 
 }
-
-
 publishTableRows();
-
-function saveActivity(){
-    console.log('click');
-
-}
-
-function printActivity(){
-
-}
 
 
