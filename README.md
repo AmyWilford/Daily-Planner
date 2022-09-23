@@ -58,5 +58,4 @@ Use this calendar to schedule your day ahead. For any hour of the working day, c
 
 ## Deployment:
 
-View this application in a web environment: []
-
+View this application in a web environment: [https://amywilford.github.io/Daily-Planner/]
