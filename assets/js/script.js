@@ -26,7 +26,7 @@ for(i = 0; i<9; i++) {
     tableRowEl = $('<tr>').attr('id', i+9).addClass('custom-row');
     timeCol = $('<td>').text(hours[i+9]).addClass('time-block col-2 custom-td text-right')
     activityCol = $('<td>').addClass('col-9').attr('class', 'note')
-    activityTextarea = $('<textarea>').addClass('w-100').attr('data-id', i+9);
+    activityTextarea = $('<textarea>').addClass('w-100 description').attr('data-id', i+9);
     saveCol = $('<td>').addClass('col-1 p-0')
     // Add eventlistener on each button that will run saveNote()
     saveBtn = $('<button>').addClass('saveBtn').on('click', saveNote);
